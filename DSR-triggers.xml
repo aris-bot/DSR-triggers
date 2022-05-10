@@ -1156,7 +1156,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="放塔-Elusive Jump" Id="af394967-fd9f-4235-b189-b6430349f2a4" RegularExpression="1A:AC5:[^:]*:(?&lt;Duration&gt;[^:]+?):[^:]*::.{8}:(?&lt;PlayerName&gt;[^:]+?):">
                     <Actions>
@@ -1167,7 +1166,6 @@
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="Gnash and Lash" Id="3a04f331-d67b-4fdc-bcb2-32f3fa892c8c" RegularExpression="14:.{8}:[^:]*:6712:">
                     <Actions>
@@ -1179,7 +1177,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="Lash and Gnash" Id="78140c69-b425-41db-8324-f256b7cff488" RegularExpression="14:.{8}:[^:]*:6713:">
                     <Actions>
@@ -1191,7 +1188,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="麻将3号" Id="637ad2af-3373-47ca-a7ab-df0b5c4f67bb" RegularExpression="1A:BBE:[^:]*:9999.00:[^:]*::.{8}:(?&lt;PlayerName&gt;[^:]+?):">
                     <Actions>
@@ -1226,7 +1222,6 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="麻将1号" Id="7deb72c1-cc9c-4c19-8aa9-813edd490005" RegularExpression="1A:BBC:[^:]*:9999.00:[^:]*::.{8}:(?&lt;PlayerName&gt;[^:]+?):">
                     <Actions>
@@ -1261,7 +1256,6 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="麻将2号" Id="93c7fda2-a255-467d-86e7-3325bc76fb9c" RegularExpression="1A:BBD:[^:]*:9999.00:[^:]*::.{8}:(?&lt;PlayerName&gt;[^:]+?):">
                     <Actions>
@@ -1296,7 +1290,6 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="放塔-High Jump" Id="22e053b9-fbc2-40d0-89cf-e53029e8a49c" RegularExpression="1A:AC3:[^:]*:(?&lt;Duration&gt;[^:]+?):[^:]*::.{8}:(?&lt;PlayerName&gt;[^:]+?):">
                     <Actions>
@@ -1307,7 +1300,6 @@
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="放塔-Spineshatter Dive" Id="616518f3-0298-4fa6-8061-694fcd4eaaed" RegularExpression="1A:AC4:[^:]*:(?&lt;Duration&gt;[^:]+?):[^:]*::.{8}:(?&lt;PlayerName&gt;[^:]+?):">
                     <Actions>
@@ -1318,7 +1310,6 @@
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="麻将1号的左右中优化" Id="1707202e-a278-402b-967f-107f30377d02" RegularExpression="15:.{8}:[^:]*:67(0E|0F|10):[^:]*:.{8}:(?&lt;PlayerName&gt;[^:]+?):.*:::(?&lt;x&gt;[^:]+?):(?&lt;y&gt;[^:]+?):0.00:">
                     <Actions>
@@ -1349,7 +1340,6 @@
                       <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:DSR-P3-marker}" ExpressionTypeL="String" ExpressionR="①号" ExpressionTypeR="String" ConditionType="RegexMatch" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -1413,7 +1403,6 @@
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -1440,60 +1429,59 @@
                           <ConditionSingle Enabled="true" ExpressionL="${Duration}" ExpressionTypeL="String" ExpressionR="9.00" ExpressionTypeR="String" ConditionType="NumericEqual" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="4" ListVariableOp="SortAlphaAsc" ListVariableName="DSR-P3-1hao" ListVariableExpression="l ${PlayerName}↓" ListVariableIndex="1" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
-                        <Condition Enabled="false" Grouping="And">
-                          <ConditionSingle Enabled="false" ExpressionL="${Duration}" ExpressionTypeL="String" ExpressionR="9.00" ExpressionTypeR="String" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="5" ListVariableOp="Push" ListVariableName="DSR-P3-2hao" ListVariableExpression="M ◉${PlayerName}" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                      <Action OrderNumber="4" ListVariableOp="Push" ListVariableName="DSR-P3-2hao" ListVariableExpression="M ◉${PlayerName}" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="String" ExpressionR="3" ExpressionTypeR="String" ConditionType="RegexMatch" />
                           <ConditionSingle Enabled="true" ExpressionL="${Duration}" ExpressionTypeL="String" ExpressionR="19.00" ExpressionTypeR="String" ConditionType="NumericEqual" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="6" ListVariableOp="Push" ListVariableName="DSR-P3-2hao" ListVariableExpression="R ↑${PlayerName}" ListVariableIndex="3" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                      <Action OrderNumber="5" ListVariableOp="Push" ListVariableName="DSR-P3-2hao" ListVariableExpression="R ↑${PlayerName}" ListVariableIndex="3" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="String" ExpressionR="4" ExpressionTypeR="String" ConditionType="RegexMatch" />
                           <ConditionSingle Enabled="true" ExpressionL="${Duration}" ExpressionTypeL="String" ExpressionR="19.00" ExpressionTypeR="String" ConditionType="NumericEqual" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="7" ListVariableOp="Push" ListVariableName="DSR-P3-2hao" ListVariableExpression="L ↓${PlayerName}" ListVariableIndex="1" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                      <Action OrderNumber="6" ListVariableOp="Push" ListVariableName="DSR-P3-2hao" ListVariableExpression="L ↓${PlayerName}" ListVariableIndex="1" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="String" ExpressionR="5" ExpressionTypeR="String" ConditionType="RegexMatch" />
                           <ConditionSingle Enabled="true" ExpressionL="${Duration}" ExpressionTypeL="String" ExpressionR="19.00" ExpressionTypeR="String" ConditionType="NumericEqual" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="8" ListVariableOp="SortAlphaAsc" ListVariableName="DSR-P3-2hao" ListVariableExpression="l ${PlayerName}↓" ListVariableIndex="1" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
-                        <Condition Enabled="false" Grouping="And">
-                          <ConditionSingle Enabled="false" ExpressionL="${Duration}" ExpressionTypeL="String" ExpressionR="9.00" ExpressionTypeR="String" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="9" ListVariableOp="Push" ListVariableName="DSR-P3-3hao" ListVariableExpression="M ◉${PlayerName}" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                      <Action OrderNumber="7" ListVariableOp="Push" ListVariableName="DSR-P3-3hao" ListVariableExpression="M ◉${PlayerName}" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="String" ExpressionR="3" ExpressionTypeR="String" ConditionType="RegexMatch" />
                           <ConditionSingle Enabled="true" ExpressionL="${Duration}" ExpressionTypeL="String" ExpressionR="30.00" ExpressionTypeR="String" ConditionType="NumericEqual" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="10" ListVariableOp="Push" ListVariableName="DSR-P3-3hao" ListVariableExpression="R ↑${PlayerName}" ListVariableIndex="3" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                      <Action OrderNumber="8" ListVariableOp="Push" ListVariableName="DSR-P3-3hao" ListVariableExpression="R ↑${PlayerName}" ListVariableIndex="3" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="String" ExpressionR="4" ExpressionTypeR="String" ConditionType="RegexMatch" />
                           <ConditionSingle Enabled="true" ExpressionL="${Duration}" ExpressionTypeL="String" ExpressionR="30.00" ExpressionTypeR="String" ConditionType="NumericEqual" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="11" ListVariableOp="Push" ListVariableName="DSR-P3-3hao" ListVariableExpression="L ↓${PlayerName}" ListVariableIndex="1" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                      <Action OrderNumber="9" ListVariableOp="Push" ListVariableName="DSR-P3-3hao" ListVariableExpression="L ↓${PlayerName}" ListVariableIndex="1" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="String" ExpressionR="5" ExpressionTypeR="String" ConditionType="RegexMatch" />
                           <ConditionSingle Enabled="true" ExpressionL="${Duration}" ExpressionTypeL="String" ExpressionR="30.00" ExpressionTypeR="String" ConditionType="NumericEqual" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="12" ListVariableOp="SortAlphaAsc" ListVariableName="DSR-P3-3hao" ListVariableExpression="l ${PlayerName}↓" ListVariableIndex="1" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                      <Action OrderNumber="10" ListVariableOp="SortAlphaAsc" ListVariableName="DSR-P3-1hao" ListVariableExpression="l ${PlayerName}↓" ListVariableIndex="1" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="3">
+                        <Condition Enabled="false" Grouping="And">
+                          <ConditionSingle Enabled="false" ExpressionL="${Duration}" ExpressionTypeL="String" ExpressionR="9.00" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="11" ListVariableOp="SortAlphaAsc" ListVariableName="DSR-P3-2hao" ListVariableExpression="l ${PlayerName}↓" ListVariableIndex="1" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="3">
+                        <Condition Enabled="false" Grouping="And">
+                          <ConditionSingle Enabled="false" ExpressionL="${Duration}" ExpressionTypeL="String" ExpressionR="9.00" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="12" ListVariableOp="SortAlphaAsc" ListVariableName="DSR-P3-3hao" ListVariableExpression="l ${PlayerName}↓" ListVariableIndex="1" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="3">
                         <Condition Enabled="false" Grouping="And">
                           <ConditionSingle Enabled="false" ExpressionL="${Duration}" ExpressionTypeL="String" ExpressionR="9.00" ExpressionTypeR="String" ConditionType="NumericEqual" />
                         </Condition>
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="小队显示" Id="192576cb-17cc-460c-bf90-53d989da6e8f" RegularExpression="14:.{8}:[^:]*:670D:">
                     <Actions>
@@ -1520,7 +1508,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -1542,7 +1529,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="0 - Activate P3" Id="406a5d05-828b-44b9-85bc-dadb6f630428" RegularExpression="Wandering Minstrel:Though she emerged victorious, her comrade's body was claimed by Nidhogg, who brought his unbridled rage to bear against Ishgard.&#xA;">
             <Actions>
@@ -1554,7 +1540,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
