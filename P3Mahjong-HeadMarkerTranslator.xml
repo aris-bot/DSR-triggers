@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="28a8d420-5f54-48ca-9ce3-ecae16a1dc8c" Name="P3大师兄配和给头上标点用的翻译插件" Enabled="true">
+    <Folders />
+    <Triggers>
+      <Trigger Enabled="true" Name="我去哪里" Id="3169340f-bc59-4577-a8df-83d2fedf7713" RegularExpression="1D:Add:(?&lt;Type&gt;(0|1|2|5|6|7|8|9)):.{8}:(?&lt;PlayerName&gt;[^:]+?):">
+        <Actions>
+          <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="①号 B点塔（右）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="2" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="①号 D点塔（左）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="3" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="①号 C点塔（下）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="4" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="②号 1点塔（左）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="5" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="②号 2点塔（右）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="6" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="③号 B点塔（右）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="7" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="③号 D点塔（左）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="8" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="③号 C点塔（下）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="9" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Placeholder" Description="调整位置的方法：点击↓↓Trigger，点击“use visual guide for placement”，把框框拖动到你喜欢的地方然后右击框框点保存" DescriptionOverride="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="10" OBSEndPoint="" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraName="DSR-P3-Part1-line" TextAuraExpression="${var:DSR-P3-my-tower}" TextAuraXIniExpression="${var:DSR-loc-x}" TextAuraYIniExpression="${var:DSR-loc-y}+80" TextAuraWIniExpression="800" TextAuraHIniExpression="115" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" ActionType="TextAura">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="11" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Placeholder" Description="调整位置点↑↑" DescriptionOverride="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="12" OBSEndPoint="" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="9" TextAuraName="DSR-P3-*" TextAuraFontName="宋体" ActionType="TextAura" ExecutionDelayExpression="45000">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${var:DSR-phase-code}" ExpressionTypeL="String" ExpressionR="P3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="进p3" Id="9074b234-7c54-423b-8067-3ebb4567091a" RegularExpression="15:.{8}:[^:]*:6708:">
+        <Actions>
+          <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-phase-code" VariableExpression="P3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" OBSEndPoint="" VariableName="DSR-phase-code" VariableExpression="P3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="30000">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>
