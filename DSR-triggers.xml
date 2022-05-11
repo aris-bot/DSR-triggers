@@ -636,7 +636,7 @@
                           <Action OrderNumber="2" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="15.75" TextAuraForeground="Red" TextAuraName="DSR-P2-test" TextAuraExpression="Meteors: ${lvar:DSR-P2-2-meteors[1]}, ${lvar:DSR-P2-2-meteors[2]}" TextAuraXIniExpression="${var:DSR-loc-x}" TextAuraYIniExpression="${var:DSR-loc-y}" TextAuraWIniExpression="600" TextAuraHIniExpression="115" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" ActionType="TextAura">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="3" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerZoneType="ZoneIdFFXIV" TriggerId="07cd8111-3fc0-423e-86d6-6328991627c8" TriggerForce="regexp" ActionType="Trigger">
+                          <Action OrderNumber="3" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerZoneType="ZoneIdFFXIV" TriggerId="07cd8111-3fc0-423e-86d6-6328991627c8" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="5">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:DSR-P2-2-meteors.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
                             </Condition>
@@ -649,7 +649,7 @@
                   <Folder Id="eac285d7-2ffe-4adb-8cff-99365162010c" Name="神秘陨石*需要那个那个插件" Enabled="true">
                     <Folders />
                     <Triggers>
-                      <Trigger Enabled="true" Name="2-判断陨石落下" Id="f44335f5-d482-42f3-b3bb-d4722226eb40" RegularExpression="16:.{8}:[^:]*:63E9:[^:]*:.{8}:(?&lt;PlayerName&gt;[^:]+?):">
+                      <Trigger Enabled="true" Name="2-判断陨石落下" Id="f44335f5-d482-42f3-b3bb-d4722226eb40" RegularExpression="22:.{8}:Holy Comet:.{8}:Holy Comet:" RefirePeriodExpression="800">
                         <Actions>
                           <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="DSR-P2-memeteor-count" VariableExpression="${var:DSR-P2-memeteor-count}+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
@@ -678,10 +678,10 @@
                       </Trigger>
                       <Trigger Enabled="true" Name="*999 - 陨石小测试" Id="79746535-71ac-4d37-b9bb-a09ed011b9b5" RegularExpression="meteor simulator">
                         <Actions>
-                          <Action OrderNumber="1" LogMessageText="StatusAdd 1A:232:Prey:23.00:E0000000::1068174E:${_ffxivplayer}:00:90215:&#xA;" LogProcess="True" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="LogMessage">
+                          <Action OrderNumber="1" LogMessageText="StatusAdd 1A:232:Prey:23.00:E0000000::1068174E:${_ffxivplayer}:00:90215:&#xA;" LogProcess="True" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="2" LogMessageText="StatusAdd 1A:232:Prey:23.00:E0000000::1068174E:Coco Kona:00:90215:&#xA;" LogProcess="True" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                          <Action OrderNumber="2" LogMessageText="StatusAdd 1A:232:Prey:23.00:E0000000::1068174E:Coco Kona:00:90215:&#xA;" LogProcess="True" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="LogMessage">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                           <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;Name&quot;:&quot;Dragonsong's Reprise (Ultimate) 222&quot;,&quot;A&quot;:{&quot;X&quot;:100.0,&quot;Y&quot;:0.0,&quot;Z&quot;:86.8,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:113.2,&quot;Y&quot;:0.0,&quot;Z&quot;:100.0,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:100.0,&quot;Y&quot;:0.0,&quot;Z&quot;:113.2,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:86.8,&quot;Y&quot;:0.0,&quot;Z&quot;:100.0,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:109.333809,&quot;Y&quot;:0.0,&quot;Z&quot;:90.66619,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Three&quot;:{&quot;X&quot;:109.333809,&quot;Y&quot;:0.0,&quot;Z&quot;:109.333809,&quot;ID&quot;:5,&quot;Active&quot;:true},&quot;Four&quot;:{&quot;X&quot;:90.66619,&quot;Y&quot;:0.0,&quot;Z&quot;:109.333809,&quot;ID&quot;:6,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:90.66619,&quot;Y&quot;:0.0,&quot;Z&quot;:90.66619,&quot;ID&quot;:7,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
@@ -1157,7 +1157,7 @@
         <Folders>
           <Folder Id="bab7bc91-a8d7-45f5-a2f7-3e96abd324dc" Name="1 - 一运" Enabled="true">
             <Folders>
-              <Folder Id="add76dfe-421b-4657-b15b-07360c45ba62" Name="文字小抄*测试版" Enabled="false">
+              <Folder Id="add76dfe-421b-4657-b15b-07360c45ba62" Name="文字小抄*测试版" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Name="小抄显示" Id="d77db2d1-7d9d-4fe7-b19c-945e71bab0b1" RegularExpression="14:.{8}:[^:]*:670D:">
@@ -1708,7 +1708,7 @@
               <Folder Id="28a8d420-5f54-48ca-9ce3-ecae16a1dc8c" Name="P3大师兄配和给头上标点用的翻译插件" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="我去哪里" Id="3169340f-bc59-4577-a8df-83d2fedf7713" RegularExpression="1D:Add:(?&lt;Type&gt;(0|1|2|5|6|7|8|9)):.{8}:(?&lt;PlayerName&gt;[^:]+?):">
+                  <Trigger Enabled="true" Name="我去哪里" Id="3169340f-bc59-4577-a8df-83d2fedf7713" RegularExpression="1D:Add:(?&lt;Type&gt;(0|1|2|5|6|7|8|9)):.{8}:(?&lt;CastName&gt;[^:]+?):.{8}:(?&lt;PlayerName&gt;[^:]+?)$">
                     <Actions>
                       <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="①号 D点塔（左）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                         <Condition Enabled="true" Grouping="And">
@@ -1753,7 +1753,7 @@
                       <Action OrderNumber="9" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Placeholder" Description="调整位置的方法：点击↓↓Trigger，点击“use visual guide for placement”，把框框拖动到你喜欢的地方然后右击框框点保存" DescriptionOverride="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="10" OBSEndPoint="" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraName="DSR-P3-Part1-line" TextAuraExpression="${var:DSR-P3-my-tower}" TextAuraXIniExpression="${var:DSR-loc-x}" TextAuraYIniExpression="${var:DSR-loc-y}+80" TextAuraWIniExpression="800" TextAuraHIniExpression="115" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" ActionType="TextAura">
+                      <Action OrderNumber="10" OBSEndPoint="" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraName="DSR-P3-Part1-line" TextAuraExpression="${var:DSR-P3-my-tower}" TextAuraXIniExpression="${var:DSR-loc-x}" TextAuraYIniExpression="${var:DSR-loc-y}+80" TextAuraWIniExpression="800" TextAuraHIniExpression="115" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" ActionType="TextAura" ExecutionDelayExpression="1">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                       <Action OrderNumber="11" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Placeholder" Description="调整位置点↑↑" DescriptionOverride="True">
@@ -1764,8 +1764,7 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${var:DSR-phase-code}" ExpressionTypeL="String" ExpressionR="P3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
                     </Condition>
                     <Conditions />
                   </Trigger>
@@ -1779,6 +1778,67 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="false" Name="testtest" Id="a39c00e7-0f41-4696-81ed-19a330c08aec" RegularExpression="1D:Add:(?&lt;Type&gt;(0|1|2|5|6|7|8|9)):.{8}:(?&lt;CastName&gt;[^:]+?):.{8}:(?&lt;PlayerName&gt;[^:]+?)">
+                    <Actions>
+                      <Action OrderNumber="1" MessageBoxText="${PlayerName}" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="MessageBox">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="①号 D点塔（左）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="①号 B点塔（右）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="①号 C点塔（下）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="②号 1点塔（左）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="6" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="②号 2点塔（右）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="7" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="③号 D点塔（左）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="8" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="③号 B点塔（右）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="9" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-my-tower" VariableExpression="③号 C点塔（下）" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${Type}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="10" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Placeholder" Description="调整位置的方法：点击↓↓Trigger，点击“use visual guide for placement”，把框框拖动到你喜欢的地方然后右击框框点保存" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="11" OBSEndPoint="" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraName="DSR-P3-Part1-line" TextAuraExpression="${var:DSR-P3-my-tower}" TextAuraXIniExpression="${var:DSR-loc-x}" TextAuraYIniExpression="${var:DSR-loc-y}+80" TextAuraWIniExpression="800" TextAuraHIniExpression="115" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" ActionType="TextAura">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="12" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Placeholder" Description="调整位置点↑↑" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="13" OBSEndPoint="" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="9" TextAuraName="DSR-P3-*" TextAuraFontName="宋体" ActionType="TextAura" ExecutionDelayExpression="45000">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="And" />
                     <Conditions />
                   </Trigger>
                 </Triggers>
@@ -1807,13 +1867,16 @@
               <Action OrderNumber="1" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-phase-code" VariableExpression="P3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;Name&quot;:&quot;Dragonsong's Reprise (Ultimate) 222&quot;,&quot;A&quot;:{&quot;X&quot;:100.0,&quot;Y&quot;:0.0,&quot;Z&quot;:86.8,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:113.2,&quot;Y&quot;:0.0,&quot;Z&quot;:100.0,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:100.0,&quot;Y&quot;:0.0,&quot;Z&quot;:113.2,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:86.8,&quot;Y&quot;:0.0,&quot;Z&quot;:100.0,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:109.333809,&quot;Y&quot;:0.0,&quot;Z&quot;:90.66619,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Three&quot;:{&quot;X&quot;:109.333809,&quot;Y&quot;:0.0,&quot;Z&quot;:109.333809,&quot;ID&quot;:5,&quot;Active&quot;:true},&quot;Four&quot;:{&quot;X&quot;:90.66619,&quot;Y&quot;:0.0,&quot;Z&quot;:109.333809,&quot;ID&quot;:6,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:90.66619,&quot;Y&quot;:0.0,&quot;Z&quot;:90.66619,&quot;ID&quot;:7,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="63af3db4-6731-4c3f-812e-e1143ed88aa1" TriggerForce="regexp,conditions" ActionType="Trigger">
+              <Action OrderNumber="3" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-phase-code" VariableExpression="P3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="2a3337d8-9a1a-4f4f-9093-4f47a8fdd7b6" TriggerForce="regexp,conditions" ActionType="Trigger" ExecutionDelayExpression="80000">
+              <Action OrderNumber="4" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="63af3db4-6731-4c3f-812e-e1143ed88aa1" TriggerForce="regexp,conditions" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="2a3337d8-9a1a-4f4f-9093-4f47a8fdd7b6" TriggerForce="regexp,conditions" ActionType="Trigger" ExecutionDelayExpression="80000">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
