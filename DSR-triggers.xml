@@ -986,7 +986,7 @@
                   <Action OrderNumber="7" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P2-2-dps-S" VariableExpression="Coco Kona" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="8" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P2-2-dps-W" VariableExpression="Stinky Toufu" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                  <Action OrderNumber="8" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P2-2-dps-W" VariableExpression="Stinky Tofu" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="9" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P2-2-th-group" VariableExpression="${var:DSR-P2-2-th-N}:${var:DSR-P2-2-th-E}:${var:DSR-P2-2-th-S}:${var:DSR-P2-2-th-W}:${var:DSR-P2-2-th-N}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="1">
@@ -1434,19 +1434,19 @@
                 <Triggers>
                   <Trigger Enabled="true" Name="Gnash and Lash" Id="d06c034a-99de-419d-8cb9-1331860c2637" RegularExpression="14:.{8}:[^:]*:6712:">
                     <Actions>
-                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="DSR-P3-IM" ListVariableExpression="钢铁" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="ListVariable">
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="DSR-P3-IM" ListVariableExpression="远离" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="ListVariable">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="DSR-P3-IM" ListVariableExpression="月环" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="ListVariable" ExecutionDelayExpression="1">
+                      <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="DSR-P3-IM" ListVariableExpression="靠近" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="ListVariable" ExecutionDelayExpression="1">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="放塔分摊" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="2000">
+                      <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="放塔分摊后远离" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="2000">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="4" OBSEndPoint="" UseTTSTextExpression="钢铁" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="6000">
+                      <Action OrderNumber="4" OBSEndPoint="" UseTTSTextExpression="远离" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="6000">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="5" OBSEndPoint="" UseTTSTextExpression="月环" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="4000">
+                      <Action OrderNumber="5" OBSEndPoint="" UseTTSTextExpression="靠近" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="4000">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -1460,13 +1460,13 @@
                       <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="DSR-P3-IM" ListVariableExpression="钢铁" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="ListVariable" ExecutionDelayExpression="1">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="放塔分摊" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="2000">
+                      <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="放塔分摊后靠近" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="2000">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="4" OBSEndPoint="" UseTTSTextExpression="月环" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="6000">
+                      <Action OrderNumber="4" OBSEndPoint="" UseTTSTextExpression="靠近" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="6000">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="5" OBSEndPoint="" UseTTSTextExpression="钢铁" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="4000">
+                      <Action OrderNumber="5" OBSEndPoint="" UseTTSTextExpression="远离" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="4000">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -2005,6 +2005,175 @@
             </Folders>
             <Triggers />
           </Folder>
+          <Folder Id="f5d66fa3-67ab-4a8c-8296-2bd9fa76e1d7" Name="2 - 八塔" Enabled="true">
+            <Folders>
+              <Folder Id="ebc3ffc1-ac6a-4faf-ae7a-bda6333cfd31" Name="踩塔" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="右下塔" Id="b5d73959-bf5b-46e7-8178-4ee6b7cfc1fd" RegularExpression="14:(?&lt;NidID&gt;.{8}):[^:]*:671(?&lt;type&gt;[789A]):[^:]*:.{8}:[^:]*:4.700:108.00:108.00:">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="1" ListVariableIndex="3" VariableOp="SetString" VariableName="DSR-P3-8tower-3" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="2" ListVariableIndex="3" VariableOp="SetString" VariableName="DSR-P3-8tower-3" VariableExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="2" ListVariableIndex="3" VariableOp="SetString" VariableName="DSR-P3-8tower-3" VariableExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="2" ListVariableIndex="3" VariableOp="SetString" VariableName="DSR-P3-8tower-3" VariableExpression="4" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-8towers-Nid-3" VariableExpression="${NidID}" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Name="右上塔" Id="ed76d0a5-9d3b-444b-ba5d-d57e602d9856" RegularExpression="14:(?&lt;NidID&gt;.{8}):[^:]*:671(?&lt;type&gt;[789A]):[^:]*:.{8}:[^:]*:4.700:108.00:92.00:">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="1" ListVariableIndex="2" VariableOp="SetString" VariableName="DSR-P3-8tower-2" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="2" ListVariableIndex="2" VariableOp="SetString" VariableName="DSR-P3-8tower-2" VariableExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="3" ListVariableIndex="2" VariableOp="SetString" VariableName="DSR-P3-8tower-2" VariableExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="4" ListVariableIndex="2" VariableOp="SetString" VariableName="DSR-P3-8tower-2" VariableExpression="4" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-8towers-Nid-2" VariableExpression="${NidID}" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Name="左下塔" Id="f196a917-2fbc-462e-a1fa-366b70c02671" RegularExpression="14:(?&lt;NidID&gt;.{8}):[^:]*:671(?&lt;type&gt;[789A]):[^:]*:.{8}:[^:]*:4.700:92.00:108.00:">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="1" ListVariableIndex="3" VariableOp="SetString" VariableName="DSR-P3-8tower-4" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="1" ListVariableIndex="3" VariableOp="SetString" VariableName="DSR-P3-8tower-4" VariableExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="1" ListVariableIndex="3" VariableOp="SetString" VariableName="DSR-P3-8tower-4" VariableExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="1" ListVariableIndex="3" VariableOp="SetString" VariableName="DSR-P3-8tower-4" VariableExpression="4" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-8towers-Nid-4" VariableExpression="${NidID}" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Name="左上塔" Id="2efb4f2e-a841-4f58-ace1-bca7bebd3e7c" RegularExpression="14:(?&lt;NidID&gt;.{8}):[^:]*:671(?&lt;type&gt;[789A]):[^:]*:.{8}:[^:]*:4.700:92.00:92.00:">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="1" ListVariableIndex="3" VariableOp="SetString" VariableName="DSR-P3-8tower-1" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="1" ListVariableIndex="3" VariableOp="SetString" VariableName="DSR-P3-8tower-1" VariableExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="1" ListVariableIndex="3" VariableOp="SetString" VariableName="DSR-P3-8tower-1" VariableExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" ListVariableOp="Set" ListVariableName="p3_tower" ListVariableExpression="1" ListVariableIndex="3" VariableOp="SetString" VariableName="DSR-P3-8tower-1" VariableExpression="4" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-P3-8towers-Nid-1" VariableExpression="${NidID}" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Name="文字塔" Id="3aff163e-c8f5-4a9b-9ada-e3806503d11d" RegularExpression="14:.+?:.+?:671[789A]:" PeriodRefire="Deny" RefirePeriodExpression="1000" Description="1">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="${var:Souma_Team_Role}" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="26.25" TextAuraForeground="Yellow" TextAuraOutline="Black" TextAuraName="DSR-P3-tower_1" TextAuraExpression="${var:DSR-P3-8tower-1}        ${var:DSR-P3-8tower-2}" TextAuraXIniExpression="${var:DSR-loc-x}" TextAuraYIniExpression="${var:DSR-loc-y}" TextAuraWIniExpression="400" TextAuraHIniExpression="200" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7*1000-${_sincems}" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" ActionType="TextAura" ExecutionDelayExpression="200" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" UseTTSTextExpression="${var:Souma_Team_Role}" TextAuraEffect="Bold" TextAuraFontSize="26.25" TextAuraForeground="#FFFF80" TextAuraOutline="Black" TextAuraName="DSR-P3-tower_2" TextAuraExpression="${var:DSR-P3-8tower-4}        ${var:DSR-P3-8tower-3}" TextAuraXIniExpression="${var:DSR-loc-x}" TextAuraYIniExpression="${var:DSR-loc-y}" TextAuraWIniExpression="400" TextAuraHIniExpression="200" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7*1000-${_sincems}" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" ActionType="TextAura" ExecutionDelayExpression="200" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" UseTTSTextExpression="${lvar:p3_tower[1]} ${lvar:p3_tower[2]} ${lvar:p3_tower[3]} ${lvar:p3_tower[4]}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="4" UseTTSTextExpression="${var:Souma_Team_Role}" TextAuraOp="DeactivateAuraRegex" TextAuraEffect="Bold" TextAuraFontSize="26.25" TextAuraForeground="White" TextAuraOutline="Fuchsia" TextAuraName="DSR-P3-tower*" TextAuraExpression="${lvar:p3_tower[4]}         ${lvar:p3_tower[3]}" TextAuraXIniExpression="${var:DSR-loc-x}" TextAuraYIniExpression="${var:DSR-loc-y}+50" TextAuraWIniExpression="400" TextAuraHIniExpression="200" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7*1000-${_sincems}" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" Enabled="False" ActionType="TextAura" ExecutionDelayExpression="12000" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="0e9a5c29-ba14-4e57-9a90-66f95a094a3a" Name="接线" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="Tether" Id="fece1e51-a805-4465-8c73-5356aa1a8ae6" RegularExpression="23:(?&lt;NidID&gt;.{8}):Nidhogg:.{8}:(?&lt;PlayerName&gt;[^:]*):">
+                    <Actions>
+                      <Action OrderNumber="1" OBSEndPoint="" UseTTSTextExpression="伊点连线${PlayerName}" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${NidID}" ExpressionTypeL="String" ExpressionR="${var:DSR-P3-8towers-Nid-1}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="二点连线${PlayerName}" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${NidID}" ExpressionTypeL="String" ExpressionR="${var:DSR-P3-8towers-Nid-2}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="三点连线${PlayerName}" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${NidID}" ExpressionTypeL="String" ExpressionR="${var:DSR-P3-8towers-Nid-3}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" OBSEndPoint="" UseTTSTextExpression="四点连线${PlayerName}" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${NidID}" ExpressionTypeL="String" ExpressionR="${var:DSR-P3-8towers-Nid-4}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers />
+          </Folder>
         </Folders>
         <Triggers>
           <Trigger Enabled="true" Name="999 - Deactivate trigger" Id="2a3337d8-9a1a-4f4f-9093-4f47a8fdd7b6" RegularExpression="21:[A-F0-9]{8}:40000010:">
@@ -2035,7 +2204,7 @@
               <Action OrderNumber="4" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="63af3db4-6731-4c3f-812e-e1143ed88aa1" TriggerForce="regexp,conditions" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="2a3337d8-9a1a-4f4f-9093-4f47a8fdd7b6" TriggerForce="regexp,conditions" ActionType="Trigger" ExecutionDelayExpression="80000">
+              <Action OrderNumber="5" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="2a3337d8-9a1a-4f4f-9093-4f47a8fdd7b6" TriggerForce="regexp,conditions" ActionType="Trigger" ExecutionDelayExpression="82000">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
