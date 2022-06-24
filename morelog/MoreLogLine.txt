@@ -1,4 +1,5 @@
-ObjectSpawn|0305
-WeatherChange|03d4
-MapEffect|01d3
+ObjectSpawn|1b7
+WantOpcode|F
+WeatherChange|F
+MapEffect|02E0
 ActorMove|0132

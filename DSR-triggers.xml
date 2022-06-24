@@ -33,7 +33,7 @@
                       <Action OrderNumber="3" LogMessageText="MarkBlue-${var:DSR-prior(2)}-${var:DSR-line(${var:DSR-prior(2)})}" LogProcess="True" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="SimSun" Enabled="False" ActionType="LogMessage" ExecutionDelayExpression="50">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="4" LogMessageText="MarkBlue-${var:DSR-prior(3)}-${var:DSR-line(${var:DSR-prior(3)})}" LogProcess="True" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="LogMessage" ExecutionDelayExpression="300">
+                      <Action OrderNumber="4" LogMessageText="MarkBlue-${var:DSR-prior(3)}-${var:DSR-line(${var:DSR-prior(3)})}" LogProcess="True" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="LogMessage" ExecutionDelayExpression="800">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                       <Action OrderNumber="5" LogMessageText="MarkBlue-${var:DSR-prior(4)}-${var:DSR-line(${var:DSR-prior(4)})}" LogProcess="True" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="LogMessage" ExecutionDelayExpression="80">
@@ -123,7 +123,7 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder Id="3e248ad1-3ec4-4343-8926-698c2f6e9424" Name="雾龙判断" Enabled="true">
+              <Folder Id="3e248ad1-3ec4-4343-8926-698c2f6e9424" Name="雾龙判断" Enabled="false">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Name="通用触发" Id="2d94494a-4b74-4007-b8db-bac1881baaac" RegularExpression="^one_sport_tid:(?&lt;tid&gt;.+?)$">
@@ -267,7 +267,7 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder Id="35efa12f-0ab4-421b-bbaa-597986c47402" Name="骑神位置" Enabled="true">
+              <Folder Id="35efa12f-0ab4-421b-bbaa-597986c47402" Name="骑神位置" Enabled="false">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Name="获取骑神ID" Id="6001ad68-d48e-47ed-9473-368e83f520a0" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;4[0-9A-F]{7}):[^:]+?:63D3:" PeriodRefire="Deny" RefirePeriodExpression="100">
@@ -298,7 +298,7 @@
                           <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${var:骑神id}].y}-116.26)}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="4" PlaySpeechMyself="True" UseTTSTextExpression="四点丹丹" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                      <Action OrderNumber="4" UseTTSTextExpression="四点丹丹" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${var:骑神id}].x}-83.73)}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
                           <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${var:骑神id}].y}-116.26)}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
@@ -343,34 +343,46 @@
                   <Action OrderNumber="1" ListVariableName="one_sport" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" OBSEndPoint="" VariableOp="UnsetRegex" VariableName="DSR-P2-1-*" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                  <Action OrderNumber="2" ListVariableOp="Insert" ListVariableName="one_sport" ListVariableExpression="1" ListVariableIndex="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-phase-code" VariableExpression="P2-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                  <Action OrderNumber="3" ListVariableOp="Insert" ListVariableName="one_sport" ListVariableExpression="1" ListVariableIndex="2" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="4" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="60156125-9792-4ef6-9cdc-ea09bc1f1f88" TriggerForce="regexp,conditions" ActionType="Trigger">
+                  <Action OrderNumber="4" ListVariableOp="Insert" ListVariableName="one_sport" ListVariableExpression="1" ListVariableIndex="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="5" ListVariableName="DSR-P2-Blue-Marker" ListVariableExpression="${var:DSR-line(${_ffxivparty[${name}].job})}" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="ListVariable">
+                  <Action OrderNumber="5" ListVariableOp="Insert" ListVariableName="one_sport" ListVariableExpression="1" ListVariableIndex="4" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="6" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="62b7f513-b752-4bbd-8a49-9b24a2c4e12d" TriggerForce="regexp,conditions" ActionType="Trigger">
+                  <Action OrderNumber="6" OBSEndPoint="" VariableOp="UnsetRegex" VariableName="DSR-P2-1-*" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="7" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="5b846002-3d0c-42f6-93ba-1ab07d41a3c9" TriggerForce="regexp,conditions" ActionType="Trigger">
+                  <Action OrderNumber="7" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-phase-code" VariableExpression="P2-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="8" OBSEndPoint="" VariableOp="SetNumeric" VariableName="DSR-P2-1-blues" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="1">
+                  <Action OrderNumber="8" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="60156125-9792-4ef6-9cdc-ea09bc1f1f88" TriggerForce="regexp,conditions" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="9" OBSEndPoint="" VariableOp="SetNumeric" VariableName="DSR-P2-1-noblues" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="1">
+                  <Action OrderNumber="9" ListVariableName="DSR-P2-Blue-Marker" ListVariableExpression="${var:DSR-line(${_ffxivparty[${name}].job})}" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="ListVariable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="10" ListVariableName="DSR-P5-death" ListVariableExpression="${var:DSR-line(${_ffxivparty[${name}].job})}" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="ListVariable">
+                  <Action OrderNumber="10" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="62b7f513-b752-4bbd-8a49-9b24a2c4e12d" TriggerForce="regexp,conditions" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="11" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="20a3f8f5-c945-4d9a-8865-4522d6725b5c" TriggerForce="regexp,conditions" Enabled="False" ActionType="Trigger" ExecutionDelayExpression="30000">
+                  <Action OrderNumber="11" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="5b846002-3d0c-42f6-93ba-1ab07d41a3c9" TriggerForce="regexp,conditions" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="12" OBSEndPoint="" VariableOp="SetNumeric" VariableName="DSR-P2-1-blues" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="1">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="13" OBSEndPoint="" VariableOp="SetNumeric" VariableName="DSR-P2-1-noblues" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="1">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="14" ListVariableName="DSR-P5-death" ListVariableExpression="${var:DSR-line(${_ffxivparty[${name}].job})}" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="15" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="20a3f8f5-c945-4d9a-8865-4522d6725b5c" TriggerForce="regexp,conditions" Enabled="False" ActionType="Trigger" ExecutionDelayExpression="30000">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -1240,9 +1252,9 @@
           <Folder Id="b9697a4b-b876-4350-bf0a-b1976e39e7a0" Name="頭頂標記系列" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="P2一運藍標來讀取讀取頭頂標記隨機數*需要打開P2一運" Id="77b45e96-e7d1-4ce0-b0a9-b5e797c39d61" RegularExpression="1B:[^x:]{8}:(?&lt;PlayerName&gt;[^:]+?):.{4}:.{4}:(?&lt;marker&gt;[^:]{4}):">
+              <Trigger Enabled="false" Name="P1头标初始化" Id="77b45e96-e7d1-4ce0-b0a9-b5e797c39d61" RegularExpression="TargetIcon 1B:.{8}:[^:]*:0000:3A74:(?&lt;marker&gt;[^:]{4}):0000:0000:0000&#xA;">
                 <Actions>
-                  <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="DSR-headmaker-randomnumber" VariableExpression="${numeric:(${func:hex2dec:${marker}} -${func:hex2dec:014A})}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                  <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="DSR-headmaker-randomnumber" VariableExpression="${numeric:(${func:hex2dec:${marker}} -${func:hex2dec:0119})}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -1264,6 +1276,16 @@
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:DSR-headmaker-randomnumber}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Name="P2一運藍標來讀取讀取頭頂標記隨機數*需要打開P2一運" Id="dea97a69-e815-47b9-9b71-99d369414794" RegularExpression="1B:[^x:]{8}:(?&lt;PlayerName&gt;[^:]+?):.{4}:.{4}:(?&lt;marker&gt;[^:]{4}):">
+                <Actions>
+                  <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="DSR-headmaker-randomnumber" VariableExpression="${numeric:(${func:hex2dec:${marker}} -${func:hex2dec:014A})}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:DSR-phase-code}" ExpressionTypeL="String" ExpressionR="P2-1" ExpressionTypeR="String" ConditionType="RegexMatch" />
                 </Condition>
               </Trigger>
             </Triggers>
@@ -2627,7 +2649,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="文字塔" Id="3aff163e-c8f5-4a9b-9ada-e3806503d11d" RegularExpression="14:.+?:.+?:671[789A]:" PeriodRefire="Deny" RefirePeriodExpression="1000" Description="1">
+                  <Trigger Enabled="true" Name="文字塔" Id="3aff163e-c8f5-4a9b-9ada-e3806503d11d" RegularExpression="14:(?&lt;NidID&gt;.{8}):[^:]*:671(?&lt;type&gt;[789A]):" PeriodRefire="Deny" RefirePeriodExpression="1000" Description="1">
                     <Actions>
                       <Action OrderNumber="1" UseTTSTextExpression="${var:Souma_Team_Role}" TextAuraAlignment="TopCenter" TextAuraEffect="Bold" TextAuraFontSize="26.25" TextAuraForeground="Yellow" TextAuraOutline="Black" TextAuraName="DSR-P3-tower_1" TextAuraExpression="${var:DSR-P3-8tower-1}        ${var:DSR-P3-8tower-2}" TextAuraXIniExpression="${var:DSR-loc-x}" TextAuraYIniExpression="${var:DSR-loc-y}" TextAuraWIniExpression="400" TextAuraHIniExpression="200" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7*1000-${_sincems}" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" ActionType="TextAura" ExecutionDelayExpression="200" Asynchronous="False">
                         <Condition Enabled="false" Grouping="Or" />
@@ -2700,7 +2722,7 @@
               <Action OrderNumber="1" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;Name&quot;:&quot;Dragonsong's Reprise (Ultimate) 222&quot;,&quot;A&quot;:{&quot;X&quot;:100.0,&quot;Y&quot;:0.0,&quot;Z&quot;:86.8,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:113.2,&quot;Y&quot;:0.0,&quot;Z&quot;:100.0,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:100.0,&quot;Y&quot;:0.0,&quot;Z&quot;:113.2,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:86.8,&quot;Y&quot;:0.0,&quot;Z&quot;:100.0,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:109.333809,&quot;Y&quot;:0.0,&quot;Z&quot;:90.66619,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Three&quot;:{&quot;X&quot;:109.333809,&quot;Y&quot;:0.0,&quot;Z&quot;:109.333809,&quot;ID&quot;:5,&quot;Active&quot;:true},&quot;Four&quot;:{&quot;X&quot;:90.66619,&quot;Y&quot;:0.0,&quot;Z&quot;:109.333809,&quot;ID&quot;:6,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:90.66619,&quot;Y&quot;:0.0,&quot;Z&quot;:90.66619,&quot;ID&quot;:7,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;Name&quot;:&quot;Dragonsong's Reprise (Ultimate) 222&quot;,&quot;A&quot;:{&quot;X&quot;:100.0,&quot;Y&quot;:0.0,&quot;Z&quot;:86.8,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:113.2,&quot;Y&quot;:0.0,&quot;Z&quot;:100.0,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:100.0,&quot;Y&quot;:0.0,&quot;Z&quot;:113.2,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:86.8,&quot;Y&quot;:0.0,&quot;Z&quot;:100.0,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:109.333809,&quot;Y&quot;:0.0,&quot;Z&quot;:90.66619,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Three&quot;:{&quot;X&quot;:109.333809,&quot;Y&quot;:0.0,&quot;Z&quot;:109.333809,&quot;ID&quot;:5,&quot;Active&quot;:true},&quot;Four&quot;:{&quot;X&quot;:90.66619,&quot;Y&quot;:0.0,&quot;Z&quot;:109.333809,&quot;ID&quot;:6,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:90.66619,&quot;Y&quot;:0.0,&quot;Z&quot;:90.66619,&quot;ID&quot;:7,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="GenericJson">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="3" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-phase-code" VariableExpression="P3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
@@ -3111,7 +3133,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder Id="422c11fd-1a35-4793-aea2-236db54ed9ad" Name="光暗点名（标记）" Enabled="true">
+          <Folder Id="422c11fd-1a35-4793-aea2-236db54ed9ad" Name="光暗点名（标记）" Enabled="false">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Sequential="True" Name="暗标记" Id="6e81e219-b318-4c88-ac77-181ce73a2be9" RegularExpression="^.{14} StatusAdd 1A:AC6:.+?:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):" PrevActionsRefire="Deny" MutexToCapture="p6_dark_mark" Description="原地 AC3&#xD;&#xA;正对boss AC4&#xD;&#xA;背对boss AC5">
@@ -3147,7 +3169,7 @@
             <Triggers>
               <Trigger Enabled="true" Name="双T远离/人群靠近" Id="9cf988a1-bb99-4504-8b37-a5ee3856f2ae" RegularExpression="^.{14} StartsCasting 14:.+?:.+?:6D2[47]:">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="双替远离" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="2000">
+                  <Action OrderNumber="1" UseTTSTextExpression="双替远离，人群靠近" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="2000">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
@@ -3162,7 +3184,7 @@
               </Trigger>
               <Trigger Enabled="true" Name="双T靠近/人群远离" Id="81072573-f0dc-4bb8-8120-f8eef6133f7b" RegularExpression="^.{14} StartsCasting 14:.+?:.+?:6D2[36]:">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="双替靠近" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="2000">
+                  <Action OrderNumber="1" UseTTSTextExpression="双替靠近，人群远离" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="2000">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
@@ -3233,12 +3255,12 @@
               </Trigger>
               <Trigger Enabled="true" Name="下半场安全" Id="8561d84f-539a-4a80-a4e9-9dc2c900930e" RegularExpression="^.{14} StartsCasting 14:.+?:.+?:6D2[67]:">
                 <Actions>
-                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="去4点" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                  <Action OrderNumber="1" UseTTSTextExpression="去4点" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:p6_id}].x}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="2" PlaySpeechMyself="True" UseTTSTextExpression="去3点" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                  <Action OrderNumber="2" UseTTSTextExpression="去3点" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:p6_id}].x}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                     </Condition>
@@ -3250,12 +3272,12 @@
               </Trigger>
               <Trigger Enabled="true" Name="上半场安全" Id="8bfd3288-0a49-46c8-8e4f-45097cb25d1e" RegularExpression="^.{14} StartsCasting 14:.+?:.+?:6D2[34]:">
                 <Actions>
-                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="去1点" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                  <Action OrderNumber="1" UseTTSTextExpression="去1点" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:p6_id}].x}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="2" PlaySpeechMyself="True" UseTTSTextExpression="去2点" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                  <Action OrderNumber="2" UseTTSTextExpression="去2点" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:p6_id}].x}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                     </Condition>
@@ -3316,6 +3338,64 @@
               </Trigger>
             </Triggers>
           </Folder>
+          <Folder Id="95649bec-4fa2-4fca-ace1-e8fd47fc3fdb" Name="光暗点名（标记）" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Sequential="True" Name="补充标记" Id="ba5ffb98-bb3e-4175-98fc-dcd47009ff25" RegularExpression="^.{14} AddCombatant 03:(?&lt;tid&gt;(?:[^:]*)):(?&lt;name&gt;(?:[^:]*)):(?&lt;job&gt;(?:[^:]*)):(?&lt;level&gt;(?:[^:]*)):(?&lt;ownerId&gt;(?:[^:]*)):(?&lt;worldId&gt;(?:[^:]*)):(?&lt;world&gt;(?:[^:]*)):(?&lt;npcNameId&gt;(?:[^:]*)):13238:.+?:::(?&lt;x&gt;.+?):(?&lt;y&gt;.+?):" PeriodRefire="Deny" RefirePeriodExpression="10000" Description="原地 AC3&#xD;&#xA;正对boss AC4&#xD;&#xA;背对boss AC5">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${lvar:p6_id_list[1]},&quot;MarkType&quot;:9}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${lvar:p6_id_list[2]},&quot;MarkType&quot;:10}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:p3_3_list.lastindexof(${pid})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Sequential="True" Name="光标记" Id="93741fa7-a693-4999-8cfc-04028876faa7" RegularExpression="^.{14} StatusAdd 1A:AC7:.+?:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):" PrevActionsRefire="Deny" MutexToCapture="p6_light_mark" Description="原地 AC3&#xD;&#xA;正对boss AC4&#xD;&#xA;背对boss AC5">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="p6_light_mark" VariableExpression="${var:p6_light_mark}+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${pid},&quot;MarkType&quot;:${numeric:5+${var:p6_light_mark}}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" ListVariableOp="Remove" ListVariableName="p6_id_list" ListVariableIndex="${lvar:p6_id_list.indexof(${pid})}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:p3_3_list.lastindexof(${pid})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Sequential="True" Name="暗标记" Id="85eb27db-9663-4ff0-86d6-b3f6dbc01153" RegularExpression="^.{14} StatusAdd 1A:AC6:.+?:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):" PrevActionsRefire="Deny" MutexToCapture="p6_dark_mark" Description="原地 AC3&#xD;&#xA;正对boss AC4&#xD;&#xA;背对boss AC5">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="p6_dark_mark" VariableExpression="${var:p6_dark_mark}+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${pid},&quot;MarkType&quot;:${numeric:${var:p6_dark_mark}}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" ListVariableOp="Remove" ListVariableName="p6_id_list" ListVariableIndex="${lvar:p6_id_list.indexof(${pid})}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:p3_3_list.lastindexof(${pid})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Sequential="True" Name="收集标记" Id="17e1a9cb-3656-4afa-8018-006c9cba8756" RegularExpression="(?&lt;timestamp&gt;^.{14}) Tether (?&lt;type&gt;23):(?&lt;pid&gt;(?:[^:]*)):(?&lt;source&gt;(?:[^:]*)):(?&lt;targetId&gt;(?:[^:]*)):(?&lt;target&gt;(?:[^:]*))(?::[^:]*){2}:0035(?:$|:)" PrevActionsRefire="Deny" MutexToCapture="p6_id_list">
+                <Actions>
+                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="p6_id_list" ListVariableExpression="${pid}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
         </Folders>
         <Triggers>
           <Trigger Enabled="true" Name="分组分摊" Id="e47509d3-23dc-4802-a0c1-b00b0a053652" RegularExpression="^.{14} StartsCasting 14:.+?:.+?:6D41">
@@ -3338,6 +3418,9 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="4" OBSEndPoint="" VariableOp="SetNumeric" VariableName="p6_death" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" ListVariableOp="UnsetRegex" ListVariableName="p6_.+$" VariableOp="UnsetRegex" VariableName="p6_.+$" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -3936,7 +4019,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder Id="9acba0d1-c968-4875-adb7-8973321c15a6" Name="龙眼直接报看哪（1A2B标点版本）修正中" Enabled="true">
+          <Folder Id="9acba0d1-c968-4875-adb7-8973321c15a6" Name="龙眼直接报看哪（1A2B标点版本）" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="大龙眼赋值" Id="cc0ff959-340a-47cc-b5bb-c17aba26d59b" RegularExpression=":103:.{8}:8003759A:00020001:.{7}(?&lt;type&gt;[^:]*):">
@@ -3989,7 +4072,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="托尔单魅惑赋值" Id="269637a0-75e6-459a-924f-9ec37e30986b" RegularExpression="StartsCasting 14:.{8}:King Thordan:63D0:the Dragon's Gaze:.{8}:King Thordan:3.700:[^:]*:[^:]*:0.00:(?&lt;type&gt;[^:]*)">
                 <Actions>
@@ -4036,7 +4118,7 @@
                   <Action OrderNumber="9" OBSEndPoint="" UseTTSTextExpression="${numeric:(8 - ${var:DSR-DragonEye-Safe}/2)}}" TextAuraFontSize="9" TextAuraFontName="SimSun" Enabled="False" ActionType="UseTTS" ExecutionDelayExpression="2">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="10" OBSEndPoint="" UseTTSTextExpression="看boy点" VariableOp="SetString" VariableName="DSR-DragonEye-Safe-TTS" VariableExpression="${var:DSR-DragonEye-Safe-TTS}币，" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="Variable" ExecutionDelayExpression="2">
+                  <Action OrderNumber="10" OBSEndPoint="" UseTTSTextExpression="看boy点" VariableOp="SetString" VariableName="DSR-DragonEye-Safe-TTS" VariableExpression="${var:DSR-DragonEye-Safe-TTS}币，" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="Variable" ExecutionDelayExpression="8">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${var:DSR-DragonEye-Safe2}" ExpressionTypeL="String" ExpressionR="4" ExpressionTypeR="String" ConditionType="RegexMatch" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:DSR-DragonEye-Safe}" ExpressionTypeL="String" ExpressionR="4" ExpressionTypeR="String" ConditionType="RegexMatch" />
@@ -4084,12 +4166,14 @@
                       <ConditionSingle Enabled="true" ExpressionL="${var:DSR-DragonEye-Safe}" ExpressionTypeL="String" ExpressionR="3" ExpressionTypeR="String" ConditionType="RegexMatch" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="18" OBSEndPoint="" UseTTSTextExpression="${var:DSR-DragonEye-Safe-TTS}" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="UseTTS" ExecutionDelayExpression="5">
+                  <Action OrderNumber="18" OBSEndPoint="" UseTTSTextExpression="${var:DSR-DragonEye-Safe-TTS}" TextAuraFontSize="9" TextAuraFontName="SimSun" ActionType="UseTTS" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="19" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Yellow" TextAuraOutline="Black" TextAuraName="DSR-Eyes" TextAuraExpression="${var:DSR-DragonEye-Safe-TTS}" TextAuraXIniExpression="900" TextAuraYIniExpression="324" TextAuraWIniExpression="362" TextAuraHIniExpression="142" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7*1000-${_sincems}" TextAuraFontName="DengXian" ActionType="TextAura">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
