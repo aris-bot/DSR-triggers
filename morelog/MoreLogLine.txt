@@ -1,5 +1,5 @@
-ObjectSpawn|1b7
+ObjectSpawn|0313
 WantOpcode|F
 WeatherChange|F
-MapEffect|02E0
-ActorMove|0132
+MapEffect|007B
+ActorMove|1F1
