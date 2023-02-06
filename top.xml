@@ -1,0 +1,638 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="aa71e70e-4a94-4da8-bc3a-49f18c292310" Name="90 - 2 - TOP （AM）" Enabled="true">
+    <Folders>
+      <Folder Id="459cd61f-2791-4bef-8bdc-637f3d946cd2" Name="0 - initiate" Enabled="true">
+        <Folders>
+          <Folder Id="f961fff9-33b2-4005-b60f-cad50cb1d6bc" Name="头标解析" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="P2 TB死刑 解析头标" Id="ddcb36fa-f8c1-44fa-8722-9aab1d04e4d7" RegularExpression="1B:[^x:]{8}:(?&lt;PlayerName&gt;[^:]+?):.{4}:.{4}:(?&lt;marker&gt;[^:]{4}):">
+                <Actions>
+                  <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="TOP-headmaker-randomnumber" VariableExpression="${numeric:(${func:hex2dec:${marker}} -${func:hex2dec:0157})}" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:top-phase}" ExpressionTypeL="String" ExpressionR="p2-0" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Name="重新發標記號" Id="d6e0a08c-0ebe-464d-8c5c-459ea6431f86" RegularExpression="1B:[^x:]{8}:(?&lt;PlayerName&gt;[^:]+?):.{4}:.{4}:(?&lt;marker&gt;[^:]{4}):">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="1B:xxxxxxxx:${PlayerName}:0000:0000:${string:(${func:dec2hex:${numeric:(${func:hex2dec:${marker}}-${var:TOP-headmaker-randomnumber})}})}:" LogProcess="True" OBSEndPoint="" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-headmarker-temp" VariableExpression="${string:(${func:dec2hex:${numeric:(${func:hex2dec:${marker}}-${var:DSR-headmaker-randomnumber})}})}" Enabled="False" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" LogMessageText="1B:00000000:${PlayerName}:0000:0000:${var:DSR-headmarker-temp}:" LogProcess="True" OBSEndPoint="" Enabled="False" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" MessageBoxText="1B:xxxxxxxx:${PlayerName}:0000:0000:${string:(${func:dec2hex:${numeric:(${func:hex2dec:${marker}}-${var:TOP-headmaker-randomnumber})}})}:" Enabled="False" ActionType="MessageBox">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="And">
+                  <ConditionSingle Enabled="false" ExpressionL="${var:TOP-headmaker-randomnumber}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="950ea359-39c7-493b-81b2-660871e4ff58" Name="头标标记" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="P2索尼" Id="8678ba91-073f-472a-a920-45e5f2e912e6" RegularExpression="">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetString" VariableName="ps-mk(circle)" VariableExpression="1" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" VariableOp="SetString" VariableName="ps-mk(cross)" VariableExpression="2" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" VariableOp="SetString" VariableName="ps-mk(triangle)" VariableExpression="3" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" VariableOp="SetString" VariableName="ps-mk(square)" VariableExpression="4" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" VariableOp="SetString" VariableName="ps-mk(-circle)" VariableExpression="6" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" VariableOp="SetString" VariableName="ps-mk(-cross)" VariableExpression="7" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="7" VariableOp="SetString" VariableName="ps-mk(-triangle)" VariableExpression="8" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="8" VariableOp="SetString" VariableName="ps-mk(-square)" VariableExpression="11" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers>
+          <Trigger Enabled="true" Name="优先级设置" Id="6554f7a3-26ba-47e6-abb2-3a8e9429e25b" RegularExpression="">
+            <Actions>
+              <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(1)" VariableExpression="Riona Vandenberg" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(2)" VariableExpression="Lala Fat" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(3)" VariableExpression="Shimakami Fubuki" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(4)" VariableExpression="Coco Kona" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(5)" VariableExpression="Ball Doubleflies" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(6)" VariableExpression="Stinky Tofu" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(7)" VariableExpression="Sotsu Kin" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(8)" VariableExpression="Aris Pendragon" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="DSR-prior(1)" VariableExpression="GNB" ActionType="Placeholder" Description="------Modify Above------" DescriptionOverride="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="10" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(${var:prior(1)})" VariableExpression="1" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="11" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(${var:prior(2)})" VariableExpression="2" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="12" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(${var:prior(3)})" VariableExpression="3" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="13" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(${var:prior(4)})" VariableExpression="4" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="14" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(${var:prior(5)})" VariableExpression="5" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="15" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(${var:prior(6)})" VariableExpression="6" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="16" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(${var:prior(7)})" VariableExpression="7" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="17" ListVariableOp="Push" ListVariableName="DSR-line-list" ListVariableExpression="GNB" OBSEndPoint="" VariableOp="SetString" VariableName="prior(${var:prior(8)})" VariableExpression="8" ActionType="Variable" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="清除所有标记" Id="3810f306-fbe8-48c2-84ba-fdec698386e6" RegularExpression="clear all the head markings">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;1&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;2&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;3&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;4&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;5&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;6&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;7&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;8&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="bcfea678-11bf-417e-a35a-11bfb678e667" Name="P2" Enabled="true">
+        <Folders>
+          <Folder Id="41865022-e0be-457b-8b21-5ee1a188ea46" Name="一运麻将" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="一运初始化" Id="622d7364-71a0-473c-a17a-21baf7b65d49" RegularExpression="^.{14} StartsCasting 14:[^:]+:[^:]+:7B3E:">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetString" VariableName="top-phase" VariableExpression="p2-1" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" OBSEndPoint="" TriggerId="6554f7a3-26ba-47e6-abb2-3a8e9429e25b" TriggerForce="regexp,conditions" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" OBSEndPoint="" TriggerId="3810f306-fbe8-48c2-84ba-fdec698386e6" TriggerForce="regexp,conditions" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" OBSEndPoint="" TriggerId="8678ba91-073f-472a-a920-45e5f2e912e6" TriggerForce="regexp,conditions" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" VariableName="p2-circle" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" VariableName="p2-cross" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="7" VariableName="p2-triangle" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="8" VariableName="p2-square" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Name="circle" Id="9549ab30-b3a8-4bd7-abf6-afe5b76f6530" RegularExpression="1B:xxxxxxxx:(?&lt;PlayerName&gt;[^:]+?):.{4}:.{4}:(01A0|\(1A0\)):">
+                <Actions>
+                  <Action OrderNumber="1" Enabled="False" ActionType="SystemBeep">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" VariableOp="SetString" VariableName="p2-circle" VariableExpression="${var:prior(${PlayerName})}-${var:p2-circle}" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Name="far/near-执行标点用" Id="3a715b0b-ffb4-4714-95a7-4e7817c40722" RegularExpression="StatusAdd 1A:(D64|D63):[^:]*:27.00:" PeriodRefire="Deny" RefirePeriodExpression="2000">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="MarkPS-circle-${var:p2-circle}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="1100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" LogMessageText="MarkPS-cross-${var:p2-cross}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" LogMessageText="MarkPS-triangle-${var:p2-triangle}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" LogMessageText="MarkPS-square-${var:p2-square}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Name="paired headmarker" Id="3f115d44-dc00-46b1-8720-249ca7b7decf" RegularExpression="MarkPS-(?&lt;mk&gt;[^-]*)-(?&lt;player1&gt;[^-]*)-(?&lt;player2&gt;[^-]*)-">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${var:prior(${player1})}].id},&quot;MarkType&quot;:${var:ps-mk(${mk})}}" ActionType="NamedCallback">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${player1}" ExpressionTypeL="Numeric" ExpressionR="${player2}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${var:prior(${player2})}].id},&quot;MarkType&quot;:${var:ps-mk(-${mk})}}" ActionType="NamedCallback">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${player1}" ExpressionTypeL="Numeric" ExpressionR="${player2}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="3" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${var:prior(${player1})}].id},&quot;MarkType&quot;:${var:ps-mk(-${mk})}}" ActionType="NamedCallback">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${player1}" ExpressionTypeL="Numeric" ExpressionR="${player2}" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="4" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${var:prior(${player2})}].id},&quot;MarkType&quot;:${var:ps-mk(${mk})}}" ActionType="NamedCallback">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${player1}" ExpressionTypeL="Numeric" ExpressionR="${player2}" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Name="square" Id="1c60a12a-15cf-41df-9ea4-cd02875dc90f" RegularExpression="1B:xxxxxxxx:(?&lt;PlayerName&gt;[^:]+?):.{4}:.{4}:(01A2|\(1A2\)):">
+                <Actions>
+                  <Action OrderNumber="1" Enabled="False" ActionType="SystemBeep">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" VariableOp="SetString" VariableName="p2-square" VariableExpression="${var:prior(${PlayerName})}-${var:p2-square}" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Name="cross" Id="455a26b5-bf55-494b-b0bb-209634fb25e4" RegularExpression="1B:xxxxxxxx:(?&lt;PlayerName&gt;[^:]+?):.{4}:.{4}:(01A3|\(1A3\)):">
+                <Actions>
+                  <Action OrderNumber="1" Enabled="False" ActionType="SystemBeep">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" VariableOp="SetString" VariableName="p2-cross" VariableExpression="${var:prior(${PlayerName})}-${var:p2-cross}" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Name="triangle" Id="d877995f-607f-4b39-91d6-f3a8de719176" RegularExpression="1B:xxxxxxxx:(?&lt;PlayerName&gt;[^:]+?):.{4}:.{4}:(01A1|\(1A1\)):">
+                <Actions>
+                  <Action OrderNumber="1" Enabled="False" ActionType="SystemBeep">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" VariableOp="SetString" VariableName="p2-triangle" VariableExpression="${var:prior(${PlayerName})}-${var:p2-triangle}" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Name="结束消标" Id="72640ea8-e067-44b3-98ed-17dbf41b3f95" RegularExpression="^.{14} AOEActionEffect 16:.{8}:[^:]*:7B30:" PeriodRefire="Deny" RefirePeriodExpression="2000">
+                <Actions>
+                  <Action OrderNumber="1" OBSEndPoint="" TriggerId="3810f306-fbe8-48c2-84ba-fdec698386e6" TriggerForce="regexp,conditions" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers>
+          <Trigger Enabled="true" Name="p2初始化" Id="fecd0a20-f541-4738-953d-27f669681b54" RegularExpression="^.{14} CancelAction 17:.{8}:[^:]*:7AF8:[^:]*:Cancelled">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetString" VariableName="top-phase" VariableExpression="p2-0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="c89c823f-59f8-4674-841b-29ee513332a5" Name="tests" Enabled="true">
+        <Folders>
+          <Folder Id="10d0dd19-5023-49f4-97a6-ce6396638dfa" Name="P1 - 暂时没啥用" Enabled="false">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="p1初始化" Id="6c7aff0d-0700-4d1c-a114-89cf08c1381e" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]*:7B03:">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetString" VariableName="top-phase" VariableExpression="p1" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers>
+          <Trigger Enabled="true" Name="清除优先级（测试only" Id="a4287829-5951-4bba-ae33-741603f6c964" RegularExpression="">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="UnsetRegex" VariableName="prior*" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="test p2" Id="beb44e17-01b3-465e-9891-e6b8aa6088a8" RegularExpression="testp2">
+            <Actions>
+              <Action OrderNumber="1" TriggerId="622d7364-71a0-473c-a17a-21baf7b65d49" TriggerForce="regexp,conditions" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="test p2.5" Id="01e9e61c-78ef-4c1b-a0c2-0b67e458ad94" RegularExpression="testpp23">
+            <Actions>
+              <Action OrderNumber="1" TriggerId="b0cbc53a-c9c6-4cc5-bed0-cae6aa33e23d" TriggerForce="regexp,conditions" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="test p3" Id="c2759a01-e73f-4253-b4c9-2127b9364d34" RegularExpression="testppp3">
+            <Actions>
+              <Action OrderNumber="1" TriggerId="71a0831e-73a3-4274-b841-d5fc503212ad" TriggerForce="regexp,conditions" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="5a6cc02f-827d-44a1-b6a5-a2ea6ca15ca3" Name="P2.5" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="分散" Id="c77a8560-4749-4f33-9b44-067eaa658729" RegularExpression="StatusAdd 1A:D61:.+?:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="top-p23-${name}" VariableExpression="1" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="分摊" Id="58bc99b4-0a0c-4dac-aa8b-35dbbe2db868" RegularExpression="StatusAdd 1A:D62:.+?:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="top-p23-${name}" VariableExpression="2" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="转场初始化" Id="b0cbc53a-c9c6-4cc5-bed0-cae6aa33e23d" RegularExpression="^.{14} CancelAction 17:.{8}:[^:]*:7B45:[^:]*:Cancelled">
+            <Actions>
+              <Action OrderNumber="1" OBSEndPoint="" TriggerId="31521691-46d3-47fd-af15-29337a67be49" TriggerForce="regexp,conditions" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" VariableOp="UnsetRegex" VariableName="top-p23-*" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" VariableOp="SetNumeric" VariableName="top-p23-${var:prior(1)}" VariableExpression="0" ActionType="Variable" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" VariableOp="SetNumeric" VariableName="top-p23-${var:prior(2)}" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" VariableOp="SetNumeric" VariableName="top-p23-${var:prior(3)}" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" VariableOp="SetNumeric" VariableName="top-p23-${var:prior(4)}" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" VariableOp="SetNumeric" VariableName="top-p23-${var:prior(5)}" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" VariableOp="SetNumeric" VariableName="top-p23-${var:prior(6)}" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" VariableOp="SetNumeric" VariableName="top-p23-${var:prior(7)}" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="10" VariableOp="SetNumeric" VariableName="top-p23-${var:prior(8)}" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="11" VariableOp="SetNumeric" VariableName="top-p23-stack-counts" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="12" VariableOp="SetNumeric" VariableName="top-p23-spread-counts" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="13" VariableOp="SetNumeric" VariableName="top-p23-no-counts" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="执行标点用" Id="d7ae620d-b82e-4fc7-8b91-012f17de4f53" RegularExpression="StatusAdd 1A:D61:.+?:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" LogMessageText="Markp23-${var:prior(1)}-${var:top-p23-${var:prior(1)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="1000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" LogMessageText="Markp23-${var:prior(2)}-${var:top-p23-${var:prior(2)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" LogMessageText="Markp23-${var:prior(3)}-${var:top-p23-${var:prior(3)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" LogMessageText="Markp23-${var:prior(4)}-${var:top-p23-${var:prior(4)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" LogMessageText="Markp23-${var:prior(5)}-${var:top-p23-${var:prior(5)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" LogMessageText="Markp23-${var:prior(6)}-${var:top-p23-${var:prior(6)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" LogMessageText="Markp23-${var:prior(7)}-${var:top-p23-${var:prior(7)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" LogMessageText="Markp23-${var:prior(8)}-${var:top-p23-${var:prior(8)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" OBSEndPoint="" TriggerId="31521691-46d3-47fd-af15-29337a67be49" TriggerForce="regexp,conditions" ActionType="Trigger" ExecutionDelayExpression="18000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="headmarker-no" Id="30d7d054-0c29-4403-a668-0bbf327bf8a4" RegularExpression="Markp23-(?&lt;player&gt;[^-]*)-0">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="top-p23-no-counts" VariableExpression="${var:top-p23-no-counts}+1" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${player}].id},&quot;MarkType&quot;:${numeric:${var:top-p23-no-counts}+8}}" ActionType="NamedCallback" ExecutionDelayExpression="10">
+                <Condition Enabled="false" Grouping="And" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="headmarker-spread" Id="fece33c3-6c6c-4b9a-b59e-956ae82aaf07" RegularExpression="Markp23-(?&lt;player&gt;[^-]*)-1">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="top-p23-spread-counts" VariableExpression="${var:top-p23-spread-counts}+1" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${player}].id},&quot;MarkType&quot;:${var:top-p23-spread-counts}}" ActionType="NamedCallback" ExecutionDelayExpression="10">
+                <Condition Enabled="false" Grouping="And" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="headmarker-stack" Id="df4430e9-dbce-4d85-ab54-2d054bab1b92" RegularExpression="Markp23-(?&lt;player&gt;[^-]*)-2">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="top-p23-stack-counts" VariableExpression="${var:top-p23-stack-counts}+1" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${player}].id},&quot;MarkType&quot;:${numeric:${var:top-p23-stack-counts}+5}}" ActionType="NamedCallback" ExecutionDelayExpression="10">
+                <Condition Enabled="false" Grouping="And" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="清除所有标记" Id="31521691-46d3-47fd-af15-29337a67be49" RegularExpression="clear all the head markings">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;1&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;2&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;3&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;4&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;5&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;6&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;7&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;8&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="33f14ca1-820b-4838-a847-7f04f2d7910e" Name="P3波动炮" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="点炮" Id="2de41648-85a8-45f0-8696-1a0cad246e8e" RegularExpression="StatusAdd 1A:(D7C|D7D):.+?:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="top-p3-${name}" VariableExpression="1" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="执行标点用" Id="d68b8aec-158f-44f0-bb36-974bf8233abe" RegularExpression="StatusAdd 1A:(D7C|D7D):.+?:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" LogMessageText="Markp3-${var:prior(1)}-${var:top-p3-${var:prior(1)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="1000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" LogMessageText="Markp3-${var:prior(2)}-${var:top-p3-${var:prior(2)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" LogMessageText="Markp3-${var:prior(3)}-${var:top-p3-${var:prior(3)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" LogMessageText="Markp3-${var:prior(4)}-${var:top-p3-${var:prior(4)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" LogMessageText="Markp3-${var:prior(5)}-${var:top-p3-${var:prior(5)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" LogMessageText="Markp3-${var:prior(6)}-${var:top-p3-${var:prior(6)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" LogMessageText="Markp3-${var:prior(7)}-${var:top-p3-${var:prior(7)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" LogMessageText="Markp3-${var:prior(8)}-${var:top-p3-${var:prior(8)}}" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" OBSEndPoint="" TriggerId="31521691-46d3-47fd-af15-29337a67be49" TriggerForce="regexp,conditions" ActionType="Trigger" ExecutionDelayExpression="18000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="aoe初始化" Id="71a0831e-73a3-4274-b841-d5fc503212ad" RegularExpression="^.{14} StartsCasting 14:[^:]+:[^:]+:7B64:">
+            <Actions>
+              <Action OrderNumber="1" OBSEndPoint="" TriggerId="31521691-46d3-47fd-af15-29337a67be49" TriggerForce="regexp,conditions" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" OBSEndPoint="" TriggerId="6554f7a3-26ba-47e6-abb2-3a8e9429e25b" TriggerForce="regexp,conditions" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" VariableOp="UnsetRegex" VariableName="top-p3*" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(1)}" VariableExpression="0" ActionType="Variable" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(2)}" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(3)}" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(4)}" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(5)}" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(6)}" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="10" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(7)}" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="11" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(8)}" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="12" VariableOp="SetNumeric" VariableName="top-p3-cannon-counts" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="13" VariableOp="SetNumeric" VariableName="top-p3-no-counts" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="headmarker-no" Id="549874b8-b9ab-4e8d-8220-d375da1db3cd" RegularExpression="Markp3-(?&lt;player&gt;[^-]*)-0">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="top-p3-no-counts" VariableExpression="${var:top-p3-no-counts}+1" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${player}].id},&quot;MarkType&quot;:${numeric:${var:top-p3-no-counts}}}" ActionType="NamedCallback" ExecutionDelayExpression="10">
+                <Condition Enabled="false" Grouping="And" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="headmarker-cannon" Id="c95282d6-709f-4c6d-80e7-50a5b7517a31" RegularExpression="Markp3-(?&lt;player&gt;[^-]*)-1">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="top-p3-cannon-counts" VariableExpression="${var:top-p3-cannon-counts}+1" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${player}].id},&quot;MarkType&quot;:${numeric:${var:top-p3-cannon-counts} +5}}" ActionType="NamedCallback" ExecutionDelayExpression="10">
+                <Condition Enabled="false" Grouping="And" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="false" Name="小抄【boss打右" Id="ccb3652c-c675-4917-a745-faa56f81c00a" RegularExpression="^.{14} StartsCasting 14:[^:]+:[^:]+:7B6B:">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/p 1去" PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" Enabled="False" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers />
+  </ExportedFolder>
+</TriggernometryExport>
