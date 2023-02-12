@@ -204,7 +204,7 @@
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="Or" />
+                <Condition Enabled="false" Grouping="Or" />
               </Trigger>
               <Trigger Enabled="true" Name="far/near-执行标点用" Id="3a715b0b-ffb4-4714-95a7-4e7817c40722" RegularExpression="StatusAdd 1A:(D64|D63):[^:]*:27.00:" PeriodRefire="Deny" RefirePeriodExpression="2000">
                 <Actions>
@@ -352,14 +352,6 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Name="test p5delta" Id="b0ef3394-f1b3-4365-9d20-5406a443b7a7" RegularExpression="testp5delta">
-            <Actions>
-              <Action OrderNumber="1" TriggerId="b0f9b2d8-94ba-45c4-a3f2-87fda3b06f24" TriggerForce="regexp,conditions" ActionType="Trigger">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="false" Grouping="Or" />
-          </Trigger>
         </Triggers>
       </Folder>
       <Folder Id="5a6cc02f-827d-44a1-b6a5-a2ea6ca15ca3" Name="P2.5" Enabled="true">
@@ -490,7 +482,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Name="清除所有标记" Id="31521691-46d3-47fd-af15-29337a67be49" RegularExpression="">
+          <Trigger Enabled="true" Name="清除所有标记" Id="31521691-46d3-47fd-af15-29337a67be49" RegularExpression="clear all the head markings">
             <Actions>
               <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/marking off &lt;1&gt;" ActionType="NamedCallback">
                 <Condition Enabled="false" Grouping="Or" />
@@ -530,9 +522,7 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:top-phase}" ExpressionTypeL="String" ExpressionR="p3" ExpressionTypeR="String" ConditionType="RegexMatch" />
-            </Condition>
+            <Condition Enabled="false" Grouping="Or" />
           </Trigger>
           <Trigger Enabled="true" Name="执行标点用" Id="d68b8aec-158f-44f0-bb36-974bf8233abe" RegularExpression="StatusAdd 1A:(D7C|D7D):.+?:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):" PeriodRefire="Deny" RefirePeriodExpression="2000">
             <Actions>
@@ -564,9 +554,7 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:top-phase}" ExpressionTypeL="String" ExpressionR="p3" ExpressionTypeR="String" ConditionType="RegexMatch" />
-            </Condition>
+            <Condition Enabled="false" Grouping="Or" />
           </Trigger>
           <Trigger Enabled="true" Name="aoe初始化" Id="71a0831e-73a3-4274-b841-d5fc503212ad" RegularExpression="^.{14} StartsCasting 14:[^:]+:[^:]+:7B64:">
             <Actions>
@@ -576,40 +564,37 @@
               <Action OrderNumber="2" OBSEndPoint="" TriggerId="6554f7a3-26ba-47e6-abb2-3a8e9429e25b" TriggerForce="regexp,conditions" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" VariableOp="SetString" VariableName="top-phase" VariableExpression="p3" ActionType="Variable">
+              <Action OrderNumber="3" VariableOp="UnsetRegex" VariableName="top-p3*" VariableExpression="0" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" VariableOp="UnsetRegex" VariableName="top-p3*" VariableExpression="0" ActionType="Variable">
+              <Action OrderNumber="4" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(1)}" VariableExpression="0" ActionType="Variable" ExecutionDelayExpression="500">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(1)}" VariableExpression="0" ActionType="Variable" ExecutionDelayExpression="500">
+              <Action OrderNumber="5" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(2)}" VariableExpression="0" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="6" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(2)}" VariableExpression="0" ActionType="Variable">
+              <Action OrderNumber="6" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(3)}" VariableExpression="0" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="7" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(3)}" VariableExpression="0" ActionType="Variable">
+              <Action OrderNumber="7" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(4)}" VariableExpression="0" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="8" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(4)}" VariableExpression="0" ActionType="Variable">
+              <Action OrderNumber="8" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(5)}" VariableExpression="0" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="9" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(5)}" VariableExpression="0" ActionType="Variable">
+              <Action OrderNumber="9" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(6)}" VariableExpression="0" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="10" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(6)}" VariableExpression="0" ActionType="Variable">
+              <Action OrderNumber="10" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(7)}" VariableExpression="0" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="11" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(7)}" VariableExpression="0" ActionType="Variable">
+              <Action OrderNumber="11" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(8)}" VariableExpression="0" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="12" VariableOp="SetNumeric" VariableName="top-p3-${var:prior(8)}" VariableExpression="0" ActionType="Variable">
+              <Action OrderNumber="12" VariableOp="SetNumeric" VariableName="top-p3-cannon-counts" VariableExpression="0" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="13" VariableOp="SetNumeric" VariableName="top-p3-cannon-counts" VariableExpression="0" ActionType="Variable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="14" VariableOp="SetNumeric" VariableName="top-p3-no-counts" VariableExpression="0" ActionType="Variable">
+              <Action OrderNumber="13" VariableOp="SetNumeric" VariableName="top-p3-no-counts" VariableExpression="0" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -637,272 +622,13 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Name="结束消标" Id="a0454f9a-6f4b-46c6-bdce-6b6280e2d4fe" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]*:7B48:" PeriodRefire="Deny" RefirePeriodExpression="2000">
+          <Trigger Enabled="false" Name="小抄【boss打右" Id="ccb3652c-c675-4917-a745-faa56f81c00a" RegularExpression="^.{14} StartsCasting 14:[^:]+:[^:]+:7B6B:">
             <Actions>
-              <Action OrderNumber="1" OBSEndPoint="" TriggerId="3810f306-fbe8-48c2-84ba-fdec698386e6" TriggerForce="regexp,conditions" ActionType="Trigger">
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/p 1去" PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" Enabled="False" ActionType="NamedCallback">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-          </Trigger>
-          <Trigger Enabled="true" Name="发送小抄-右刀" Id="25771d25-a856-4215-b359-90caf66061d1" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]*:7B6B:" PeriodRefire="Deny" RefirePeriodExpression="2000">
-            <Actions>
-              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/p ==============" PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="500">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/p                " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/p                " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/p   " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="5" NamedCallbackName="command" NamedCallbackParam="/p  " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/p                          " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="7" NamedCallbackName="command" NamedCallbackParam="/p    " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="8" NamedCallbackName="command" NamedCallbackParam="/p       " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="9" NamedCallbackName="command" NamedCallbackParam="/p                 " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="10" NamedCallbackName="command" NamedCallbackParam="/p ==============" PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:top-phase}" ExpressionTypeL="String" ExpressionR="p3" ExpressionTypeR="String" ConditionType="RegexMatch" />
-            </Condition>
-            <Conditions />
-          </Trigger>
-          <Trigger Enabled="true" Name="发送小抄-左刀" Id="030d2cc1-f755-44eb-ba1c-b832831dd6fb" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]*:7B6C:" PeriodRefire="Deny" RefirePeriodExpression="2000">
-            <Actions>
-              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/p ==============" PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="500">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/p                " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/p                " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/p                           " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="5" NamedCallbackName="command" NamedCallbackParam="/p " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/p             " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="7" NamedCallbackName="command" NamedCallbackParam="/p                             " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="8" NamedCallbackName="command" NamedCallbackParam="/p                      " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="9" NamedCallbackName="command" NamedCallbackParam="/p                 " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="10" NamedCallbackName="command" NamedCallbackParam="/p ==============" PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:top-phase}" ExpressionTypeL="String" ExpressionR="p3" ExpressionTypeR="String" ConditionType="RegexMatch" />
-            </Condition>
-            <Conditions />
-          </Trigger>
-        </Triggers>
-      </Folder>
-      <Folder Id="ed8b330d-e5ef-4469-a8c1-a408b279b376" Name="P5 一运 delta" Enabled="true">
-        <Folders />
-        <Triggers>
-          <Trigger Enabled="true" Name="delta初始化" Id="b0f9b2d8-94ba-45c4-a3f2-87fda3b06f24" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]*:7B88:">
-            <Actions>
-              <Action OrderNumber="1" OBSEndPoint="" TriggerId="31521691-46d3-47fd-af15-29337a67be49" TriggerForce="regexp,conditions" ActionType="Trigger">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="2" OBSEndPoint="" TriggerId="6554f7a3-26ba-47e6-abb2-3a8e9429e25b" TriggerForce="regexp,conditions" ActionType="Trigger">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="3" VariableOp="SetString" VariableName="top-phase" VariableExpression="p5-1" ActionType="Variable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="4" ListVariableName="top-p5-delta-nearhw" VariableName="top-p5-delta-nearhw" VariableExpression="0" ActionType="Variable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="5" VariableName="top-p5-delta-distanthw" VariableExpression="0" ActionType="Variable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="6" ListVariableName="top-p5-delta-near-1" VariableOp="SetNumeric" VariableName="top-p5-delta-near" VariableExpression="0" ActionType="ListVariable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="7" ListVariableName="top-p5-delta-near-2" VariableOp="SetNumeric" VariableName="top-p5-delta-near" VariableExpression="0" ActionType="ListVariable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="8" ListVariableName="top-p5-delta-far-1" VariableOp="SetNumeric" VariableName="top-p5-delta-near" VariableExpression="0" ActionType="ListVariable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="9" ListVariableName="top-p5-delta-far-2" VariableOp="SetNumeric" VariableName="top-p5-delta-near" VariableExpression="0" ActionType="ListVariable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="false" Grouping="Or" />
-          </Trigger>
-          <Trigger Enabled="true" Name="Hello, Distant World" Id="62060f57-12e7-4c7f-b5c5-f8476bec8448" RegularExpression="StatusAdd 1A:D73:.+?:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):">
-            <Actions>
-              <Action OrderNumber="1" VariableOp="SetString" VariableName="top-p5-delta-distanthw" VariableExpression="${name}" ActionType="Variable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:top-phase}" ExpressionTypeL="String" ExpressionR="p5-1" ExpressionTypeR="String" ConditionType="RegexMatch" />
-            </Condition>
-          </Trigger>
-          <Trigger Enabled="true" Name="Hello, Near World" Id="3b19e8ad-a704-4302-923f-df8167e3ac18" RegularExpression="StatusAdd 1A:D72:.+?:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):">
-            <Actions>
-              <Action OrderNumber="1" VariableOp="SetString" VariableName="top-p5-delta-nearhw" VariableExpression="${name}" ActionType="Variable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:top-phase}" ExpressionTypeL="String" ExpressionR="p5-1" ExpressionTypeR="String" ConditionType="RegexMatch" />
-            </Condition>
-          </Trigger>
-          <Trigger Enabled="true" Name="远线" Id="acb6be43-6a98-4efb-918e-46fcb1d98afd" RegularExpression="Tether 23:.{8}:(?&lt;player1&gt;[^:]*):.{8}:(?&lt;player2&gt;[^:]*):0000:0000:00C9:">
-            <Actions>
-              <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="top-p5-delta-far-1" ListVariableExpression="${player1}" VariableOp="SetNumeric" VariableName="top-p5-delta-near" VariableExpression="0" ActionType="ListVariable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="top-p5-delta-far-2" ListVariableExpression="${player2}" VariableOp="SetNumeric" VariableName="top-p5-delta-near" VariableExpression="0" ActionType="ListVariable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:top-phase}" ExpressionTypeL="String" ExpressionR="p5-1" ExpressionTypeR="String" ConditionType="RegexMatch" />
-            </Condition>
-          </Trigger>
-          <Trigger Enabled="true" Name="近线" Id="78c44162-c34c-447a-b6dd-0e7588559a0d" RegularExpression="Tether 23:.{8}:(?&lt;player1&gt;[^:]*):.{8}:(?&lt;player2&gt;[^:]*):0000:0000:00C8:">
-            <Actions>
-              <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="top-p5-delta-near-1" ListVariableExpression="${player1}" VariableOp="SetNumeric" VariableName="top-p5-delta-near" VariableExpression="0" ActionType="ListVariable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="top-p5-delta-near-2" ListVariableExpression="${player2}" VariableOp="SetNumeric" VariableName="top-p5-delta-near" VariableExpression="0" ActionType="ListVariable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:top-phase}" ExpressionTypeL="String" ExpressionR="p5-1" ExpressionTypeR="String" ConditionType="RegexMatch" />
-            </Condition>
-          </Trigger>
-          <Trigger Enabled="true" Name="P5一运上标" Id="9df1743b-2a80-4c36-b500-d929844f3bbd" RegularExpression="StatusAdd 1A:D73:.+?:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):" PeriodRefire="Deny" RefirePeriodExpression="2000">
-            <Actions>
-              <Action OrderNumber="1" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${lvar:top-p5-delta-near-1[1]}].id},&quot;MarkType&quot;:1}" ActionType="NamedCallback" ExecutionDelayExpression="1000">
-                <Condition Enabled="false" Grouping="And" />
-              </Action>
-              <Action OrderNumber="2" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${lvar:top-p5-delta-near-2[1]}].id},&quot;MarkType&quot;:2}" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="And" />
-              </Action>
-              <Action OrderNumber="3" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${lvar:top-p5-delta-near-1[2]}].id},&quot;MarkType&quot;:3}" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="And" />
-              </Action>
-              <Action OrderNumber="4" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${lvar:top-p5-delta-near-2[2]}].id},&quot;MarkType&quot;:4}" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="And" />
-              </Action>
-              <Action OrderNumber="5" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${var:top-p5-delta-nearhw}].id},&quot;MarkType&quot;:9}" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="And" />
-              </Action>
-              <Action OrderNumber="6" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${var:top-p5-delta-distanthw}].id},&quot;MarkType&quot;:10}" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="And" />
-              </Action>
-              <Action OrderNumber="7" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${lvar:top-p5-delta-far-1[1]}].id},&quot;MarkType&quot;:6}" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:top-p5-delta-far-2[1]}" ExpressionTypeL="String" ExpressionR="${var:top-p5-delta-nearhw}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="8" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${lvar:top-p5-delta-far-2[1]}].id},&quot;MarkType&quot;:6}" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:top-p5-delta-far-1[1]}" ExpressionTypeL="String" ExpressionR="${var:top-p5-delta-nearhw}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="9" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${lvar:top-p5-delta-far-1[2]}].id},&quot;MarkType&quot;:6}" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:top-p5-delta-far-2[2]}" ExpressionTypeL="String" ExpressionR="${var:top-p5-delta-nearhw}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="10" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${lvar:top-p5-delta-far-2[2]}].id},&quot;MarkType&quot;:6}" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:top-p5-delta-far-1[2]}" ExpressionTypeL="String" ExpressionR="${var:top-p5-delta-nearhw}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="11" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${lvar:top-p5-delta-far-1[1]}].id},&quot;MarkType&quot;:7}" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:top-p5-delta-far-2[1]}" ExpressionTypeL="String" ExpressionR="${var:top-p5-delta-distanthw}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="12" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${lvar:top-p5-delta-far-2[1]}].id},&quot;MarkType&quot;:7}" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:top-p5-delta-far-1[1]}" ExpressionTypeL="String" ExpressionR="${var:top-p5-delta-distanthw}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="13" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${lvar:top-p5-delta-far-1[2]}].id},&quot;MarkType&quot;:7}" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:top-p5-delta-far-2[2]}" ExpressionTypeL="String" ExpressionR="${var:top-p5-delta-distanthw}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="14" NamedCallbackName="mark" NamedCallbackParam="{&quot;ActorID&quot;:0x${_ffxivparty[${lvar:top-p5-delta-far-2[2]}].id},&quot;MarkType&quot;:7}" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:top-p5-delta-far-1[2]}" ExpressionTypeL="String" ExpressionR="${var:top-p5-delta-distanthw}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-            </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:top-phase}" ExpressionTypeL="String" ExpressionR="p5-1" ExpressionTypeR="String" ConditionType="RegexMatch" />
-            </Condition>
-          </Trigger>
-          <Trigger Enabled="true" Name="P5一运发小抄" Id="0b30a235-5323-4f1f-bc9e-d3334bff931f" RegularExpression="StatusAdd 1A:D73:.+?:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):" PeriodRefire="Deny" RefirePeriodExpression="2000">
-            <Actions>
-              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/p ==============" PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="500">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/p           EYE" PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/p                                  " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/p        ---          |" PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="5" NamedCallbackName="command" NamedCallbackParam="/p                            |   |" PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/p        ---          |" PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="7" NamedCallbackName="command" NamedCallbackParam="/p                                 " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="8" NamedCallbackName="command" NamedCallbackParam="/p    " PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="9" NamedCallbackName="command" NamedCallbackParam="/p ==============" PlaySpeechMyself="True" UseTTSTextExpression="A A A" UseTTSRateExpression="3" ActionType="NamedCallback" ExecutionDelayExpression="20">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:top-phase}" ExpressionTypeL="String" ExpressionR="p5-1" ExpressionTypeR="String" ConditionType="RegexMatch" />
-            </Condition>
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
